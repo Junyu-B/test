@@ -1,0 +1,122 @@
+### VM Related
+
+#### 1. List all VMs:
+
+```shell
+virsh list
+```
+
+#### 2. List network setting xml:
+
+```shell
+virsh net-dumpxml <network>
+```
+#### 3. list and revert vm from snapshots:
+```shell
+virsh snapshot-list 476
+virsh snapshot-revert --domain freebsd --snapshotname 5Sep2016_S1 --running
+```
+
+
+
+### Command Line Actions Related
+
+#### 1. Switch to end of line in vi:
+
+```shell
+shift+G
+```
+
+#### 2. Switch to end of line in normal command line:
+
+```
+ctrl+E
+```
+
+#### 3. Switch to specific line in target file:
+
+```
+vi <file directory> +<n>
+```
+
+#### 4. Look up for filesystems of disk:
+
+```
+df -h
+```
+
+#### 5. Look up for files in disk:
+
+```
+du
+```
+
+#### 6. Look up with letter case ignored:
+
+```
+grep -i
+```
+
+#### 7. Look up for CPU info:
+
+```
+htop
+```
+
+#### 8. Switch to start of line in normal command line:
+
+```
+ctrl+A
+```
+
+#### 9. Delete one fragment in normal command line:
+
+```
+ctrl+W
+```
+
+#### 10. Delete one line in vi:
+
+double click D
+
+#### 11. Redo in vi:
+
+double click U
+
+#### 12. for loop for batch processing 
+
+```shell
+for i in `docker image ls`; do echo "$i"; done
+```
+
+
+
+### K8S and docker Related
+
+#### 1. Management tools for clusters, pods, deployments, etc. : 
+
+k9s
+
+#### 2. When not able to delete resources in k8s:
+
+First edit resource:
+
+```
+kubectl edit <resource name>
+```
+
+then delete the `finalizer` part and try again.
+#### 3. filtering docker images
+
+```shell
+docker image "name*"
+```
+#### 4. save and load docker images
+```shell
+docker image save > smartcity_images
+docker image load < smartcity_images
+```
+#### 5. getting k8s events
+```
+kubectl get events
+```
